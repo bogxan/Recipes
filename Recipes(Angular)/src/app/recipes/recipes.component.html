@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="form" style="margin-top: 30px; margin-bottom: 50px;">
+    <div class="container" style="display: flex; justify-content: center;">
+      <input type="text" style="border-radius: 5px; text-align: center; width: 600px;" placeholder="Search recipe..." formControlName="recipe">
+      <button style="margin-left: 5px;" (click)="showRecipesByName()" mat-mini-fab color="warn">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </form>
+  <div style="display: flex; justify-content: space-around; margin-top: 25px; margin-bottom: 25px; padding-bottom: 25px; font-size: 35px; flex-wrap: wrap;">
+    <ng-container *ngIf="recipes$ | async as recipes">
+      <recipe style="margin: 5px;" *ngFor="let res of recipes" [recipe]="res"></recipe>
+      <div *ngIf="recipes.length==0">Recipes not found</div>
+    </ng-container>
+  </div>
+</div>
+

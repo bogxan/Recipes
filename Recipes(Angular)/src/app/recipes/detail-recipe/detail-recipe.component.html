@@ -1,0 +1,21 @@
+<mat-card class="example-card" *ngIf="recipe$ | async as recipe">
+  <mat-card-header>
+    <mat-card-title>{{recipe.title}}</mat-card-title>
+    <mat-card-subtitle>Minutes for ready: {{recipe.readyMinutes}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p [innerHTML]="recipe.description"></p>
+    <a href="{{recipe.recipeUrl}}">Details of recipe on {{recipe.recipeUrl}}</a>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [class.hidden]="!hideSimilarRecipes" (click)="onButtonRecipes()">Show similar recipes</button>
+    <button mat-button [class.hidden]="hideSimilarRecipes" (click)="onButtonRecipes()">Close similar recipes</button>
+    <button mat-button [routerLink]="['/']">Return to main page</button>
+  </mat-card-actions>
+  <mat-card-content *ngIf="similarRecipes$|async as similarRecipes" [class.hidden]="hideSimilarRecipes">
+    <h2>Similar recipes: </h2>
+    <div class="cont">
+      <similar-recipe *ngFor="let res of similarRecipes" [recipe]="res"></similar-recipe>
+    </div>
+  </mat-card-content>
+</mat-card>

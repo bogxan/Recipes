@@ -1,0 +1,15 @@
+.example-card{
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: fit-content;
+  margin-bottom: 25px;
+}
+img{
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.example-header-image {
+  background-size: cover;
+}

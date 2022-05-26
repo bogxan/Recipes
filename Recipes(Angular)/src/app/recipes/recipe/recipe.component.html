@@ -1,0 +1,12 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url('+recipe.image+')'}"></div>
+    <mat-card-title>{{recipe.title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{recipe.image}}" style="width: 400px; height: 300px;" alt="">
+  <mat-card-content>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onShowDetails(recipe.id)" [routerLink]="['/details/', recipe.id]">Show details</button>
+  </mat-card-actions>
+</mat-card>
